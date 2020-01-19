@@ -1,0 +1,27 @@
+
+spring:
+  application:
+    name: eureka-serviceProvider
+    instance_id: eureka-serviceProvider_001
+    
+server:
+  port: 8004
+  servlet:
+    context-path: /eureka-serviceProvider
+
+eureka:
+  password: password
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://user:${eureka.password}@eureka-server-8001.com:8001/eureka-server/eureka/,http://user:${eureka.password}@eureka-server-8002.com:8002/eureka-server/eureka/
+  instance:
+    #prefer-ip-address: true
+    leaseRenewalIntervalInSeconds: 10
+ 
+
+
+endpoints:
+  restart:
+    enabled: true

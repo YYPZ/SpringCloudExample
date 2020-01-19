@@ -1,0 +1,12 @@
+eclipse 运行时指定配置文件
+--spring.config.location=./src/main/resources/erkServer-2.yml
+
+
+
+--spring.profiles.active=9001
+
+-Xms512m -Xmx1024m -XX:PermSize=512m
+
+
+
+

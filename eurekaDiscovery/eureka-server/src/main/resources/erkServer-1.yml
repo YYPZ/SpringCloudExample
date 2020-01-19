@@ -1,0 +1,24 @@
+spring:
+  application:
+    #高可用部署时，每台的name必须相同才能互相发现可用
+    name: eureka-server
+    instance_id: eureka-server_001
+
+server:
+  port: 8001
+  servlet:
+    context-path: /eureka-server
+
+eureka:
+  password: password
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://user:${eureka.password}@eureka-server-8002.com:8002/eureka-server/eureka/
+  instance:
+    hostname: eureka-server-8001.com
+    #prefer-ip-address: true
+    leaseRenewalIntervalInSeconds: 10
+    metadataMap:
+      instanceId: ${vcap.application.instance_id:${spring.application.name}:${spring.application.instance_id:${server.port}}}

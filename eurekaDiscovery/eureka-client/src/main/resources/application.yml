@@ -1,0 +1,39 @@
+
+spring:
+  application:
+    name: HelloClient
+    instance_id: HelloClient_001
+    
+server:
+  port: 8003
+  servlet:
+    context-path: /eureka-client
+
+eureka:
+  password: password
+  client:
+    service-url:
+      defaultZone: http://user:${eureka.password}@eureka-server-8001.com:8001/eureka-server/eureka/,http://user:${eureka.password}@eureka-server-8002.com:8002/eureka-server/eureka/
+  instance:
+    prefer-ip-address: true
+    leaseRenewalIntervalInSeconds: 10
+
+
+feign:
+  hystrix:
+    enabled: true
+
+# 访问hystrix页面 http://localhost:8003/eureka-client/hystrix   
+#页面输入http://localhost:8003/eureka-client/actuator/hystrix.stream 查看请求情况
+management:
+  server:
+    servlet:
+      context-path: /
+  endpoints:
+    web:
+      exposure:
+        include: ["health","info","hystrix.stream"]
+        
+endpoints:
+  restart:
+    enabled: true
