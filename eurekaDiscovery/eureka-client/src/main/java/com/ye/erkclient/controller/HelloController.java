@@ -18,6 +18,13 @@ public class HelloController {
 	DiscoveryClient client;
 	@RequestMapping("/getHello")
 	public String hello() {
+		/*System.err.println("try to call");
+		try {
+			Thread.sleep(10000000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}*/
 		List test=client.getInstances("HelloClient");
 		return helloClient.hello();
 	}
