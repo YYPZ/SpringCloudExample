@@ -1,4 +1,4 @@
-package com.ye.erkclient;
+package com.ye.eureka;
 
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
@@ -9,7 +9,7 @@ public class ServletInitializer extends SpringBootServletInitializer {
 
 	@Override
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-		return application.sources(ServiceProviderApplication.class);
+		return application.sources(EurekaZuulApplication.class);
 	}
 
 

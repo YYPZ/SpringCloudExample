@@ -1,0 +1,38 @@
+
+spring:
+  application:
+    name: eureka-zuul
+    instance_id: eureka-zuul_001
+    
+server:
+  port: 8006
+  servlet:
+    context-path: /eureka-zuul
+    
+    
+eureka:
+  password: password
+  client:
+    service-url:
+      defaultZone: http://user:${eureka.password}@eureka-server-8001.com:8001/eureka-server/eureka/
+  instance:
+    prefer-ip-address: true
+    leaseRenewalIntervalInSeconds: 10
+    
+zuul:
+  routes:
+    yypz:
+      #strip-prefix: 为true请求path的值会调到url的值，例如请求http://localhost:8006/eureka-zuul/eureka-client/yypz/getHello
+      #转发的路径会变为http://localhost:8003/getHello
+      path: /eureka-client/**
+      #通过指定url 
+      #url: http://localhost:8003/eureka-client
+      #通过eureka serviceId
+      serviceId: HelloClient
+      #不替换路径
+      strip-prefix: false
+
+
+logging:
+  level:
+    root: debug

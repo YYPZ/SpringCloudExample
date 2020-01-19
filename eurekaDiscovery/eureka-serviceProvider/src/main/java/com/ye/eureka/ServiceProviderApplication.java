@@ -1,4 +1,4 @@
-package com.ye.erkclient;
+package com.ye.eureka;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
