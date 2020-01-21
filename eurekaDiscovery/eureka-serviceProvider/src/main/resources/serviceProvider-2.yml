@@ -8,6 +8,14 @@ spring:
   sleuth:
     sampler:
       percentage: 1.0
+  cloud:
+    config:
+      label: master
+      name: yypz-config
+      profile: dev
+      uri: http://localhost:8008/configServer/
+      #discovery:  #支持集群
+        #service-id:  
           
 server:
   port: 8005
@@ -26,6 +34,16 @@ eureka:
     leaseRenewalIntervalInSeconds: 10
  
 
+management:
+  security:
+    enabled: false
+  endpoints:
+    web:
+      exposure:
+        include: ["health","info","refresh"]    
+    
+    
+    
 endpoints:
   restart:
     enabled: true

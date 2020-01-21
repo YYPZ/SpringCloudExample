@@ -7,8 +7,14 @@ spring:
     base-url: http://localhost:8007
   sleuth:
     sampler:
-      percentage: 1.0    
-    
+      percentage: 1.0
+  cloud:
+    config:
+      label: master
+      name: neo-config
+      profile: dev
+      uri: http://localhost:8008/configServer/
+      
 server:
   port: 8004
   servlet:
@@ -24,7 +30,15 @@ eureka:
   instance:
     #prefer-ip-address: true
     leaseRenewalIntervalInSeconds: 10
- 
+
+management:
+  security:
+    enabled: false 
+  endpoints:
+    web:
+      exposure:
+        include: ["health","info","refresh"]
+
 
 endpoints:
   restart:
