@@ -1,30 +1,30 @@
 
 spring:
   application:
-    name: eureka-serviceProvider
-    instance_id: eureka-serviceProvider_002
-  zipkin:
-    base-url: http://localhost:8007
-  sleuth:
-    sampler:
-      percentage: 1.0
-          
+    name: ZipkinServer
+    instance_id: ZipkinServer_001
+    
+#http://localhost:8007/zipkin/    
 server:
-  port: 8005
-  servlet:
-    context-path: /eureka-serviceProvider
+  port: 8007
+
 
 eureka:
   password: password
   client:
-    fetch-registry: true
-    register-with-eureka: true
     service-url:
       defaultZone: http://user:${eureka.password}@eureka-server-8001.com:8001/eureka-server/eureka/,http://user:${eureka.password}@eureka-server-8002.com:8002/eureka-server/eureka/
   instance:
-    #prefer-ip-address: true
+    prefer-ip-address: true
     leaseRenewalIntervalInSeconds: 10
- 
+
+
+management:
+  metrics:
+    web:
+      server:
+        auto-time-requests: false
+
 
 endpoints:
   restart:

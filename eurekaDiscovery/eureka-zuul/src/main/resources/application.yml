@@ -3,6 +3,11 @@ spring:
   application:
     name: eureka-zuul
     instance_id: eureka-zuul_001
+  zipkin:
+    base-url: http://localhost:8007
+  sleuth:
+    sampler:
+      percentage: 1.0 
     
 server:
   port: 8006
@@ -39,6 +44,7 @@ ribbon:
   #对当前服务的重试次数
   MaxAutoRetries: 2
   MaxAutoRetriesNextServer: 0
+  
 
 logging:
   level:

@@ -1,17 +1,17 @@
-package com.ye.eureka;
+package com.ye.zipkinServer;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-import org.springframework.cloud.openfeign.EnableFeignClients;
+import zipkin2.server.internal.EnableZipkinServer;
 
 @SpringBootApplication
-@EnableFeignClients
+@EnableZipkinServer
 @EnableDiscoveryClient
-public class ServiceProviderApplication {
+public class ZipkinServerApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ServiceProviderApplication.class, args);
+		SpringApplication.run(ZipkinServerApplication.class, args);
 	}
 
 }
