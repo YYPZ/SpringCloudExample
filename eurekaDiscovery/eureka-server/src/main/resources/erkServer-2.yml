@@ -6,7 +6,7 @@ spring:
     instance_id: eureka-server_002
     
 server:
-  port: 8002
+  port: 9002
   servlet:
     context-path: /eureka-server
 
@@ -16,9 +16,9 @@ eureka:
     fetch-registry: true
     register-with-eureka: true
     service-url:
-      defaultZone: http://user:${eureka.password}@eureka-server-8001.com:8001/eureka-server/eureka/
+      defaultZone: http://user:${eureka.password}@eureka-server-9001.com:9001/eureka-server/eureka/
   instance:
-    hostname: eureka-server-8002.com
+    hostname: eureka-server-9002.com
     #prefer-ip-address: true
     leaseRenewalIntervalInSeconds: 10
  

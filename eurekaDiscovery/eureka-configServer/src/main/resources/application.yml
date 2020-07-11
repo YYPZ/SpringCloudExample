@@ -7,13 +7,13 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/YYPZ/YE_TEST    # 配置git仓库的地址
+          uri: https://github.com/YYPZ/YE_TEST    # 配置git仓库的地址  请求示例 http://localhost:9008/configServer/yypz-config/dev   其中yypz-config 是文件前缀
           search-paths: config-repo                             # git仓库地址下的相对地址，可以配置多个，用,分割。
           username:                                             # git仓库的账号
           password: 
-    
+       
    
 server:
-  port: 8008
+  port: 9008
   servlet:
     context-path: /configServer

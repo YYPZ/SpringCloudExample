@@ -4,19 +4,19 @@ spring:
     name: eureka-serviceProvider
     instance_id: eureka-serviceProvider_001
   zipkin:
-    base-url: http://localhost:8007
+    base-url: http://localhost:9007
   sleuth:
     sampler:
       percentage: 1.0
   cloud:
     config:
       label: master
-      name: neo-config
+      name: yypz-config
       profile: dev
-      uri: http://localhost:8008/configServer/
+      uri: http://localhost:9008/configServer
       
 server:
-  port: 8004
+  port: 9004
   servlet:
     context-path: /eureka-serviceProvider
 
@@ -26,7 +26,7 @@ eureka:
     fetch-registry: true
     register-with-eureka: true
     service-url:
-      defaultZone: http://user:${eureka.password}@eureka-server-8001.com:8001/eureka-server/eureka/,http://user:${eureka.password}@eureka-server-8002.com:8002/eureka-server/eureka/
+      defaultZone: http://user:${eureka.password}@eureka-server-9001.com:9001/eureka-server/eureka/,http://user:${eureka.password}@eureka-server-9002.com:9002/eureka-server/eureka/
   instance:
     #prefer-ip-address: true
     leaseRenewalIntervalInSeconds: 10

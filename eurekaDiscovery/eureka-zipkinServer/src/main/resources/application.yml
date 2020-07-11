@@ -4,16 +4,16 @@ spring:
     name: ZipkinServer
     instance_id: ZipkinServer_001
     
-#http://localhost:8007/zipkin/    
+#http://localhost:9007/zipkin/    
 server:
-  port: 8007
+  port: 9007
 
 
 eureka:
   password: password
   client:
     service-url:
-      defaultZone: http://user:${eureka.password}@eureka-server-8001.com:8001/eureka-server/eureka/,http://user:${eureka.password}@eureka-server-8002.com:8002/eureka-server/eureka/
+      defaultZone: http://user:${eureka.password}@eureka-server-9001.com:9001/eureka-server/eureka/,http://user:${eureka.password}@eureka-server-9002.com:9002/eureka-server/eureka/
   instance:
     prefer-ip-address: true
     leaseRenewalIntervalInSeconds: 10
